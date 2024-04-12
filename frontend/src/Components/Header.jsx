@@ -6,7 +6,7 @@ export default function Header() {
     return (
         <header className='bg-slate-200 shadow-md'>
             <div className="flex justify-between item-center max-w-6xl mx-auto p-3">
-                <Link to='/' className='font-bold text-sm sm:text-xl flex flex-wrap'>
+                <Link to='/' className='font-bold text-sm sm:text-3xl flex flex-wrap mt-1'>
                     <span className='text-slate-500'>Ams</span>
                     <span className='text-slate-700'>Estate</span>
                 </Link>
@@ -14,7 +14,7 @@ export default function Header() {
                     <input type='text' placeholder='Search...' className='bg-transparent focus:outline-none w-24 sm:w-64'/>
                     <FaSearch className='text-slate-600'/>
                 </form>
-                <ul className='flex gap-4'>
+                <ul className='flex gap-4 mt-3 font-semibold'>
                     <Link to='/'><li className='hidden sm:inline text-slate-700 hover:underline'>Home</li></Link>
                     <Link to='/about'><li className='hidden sm:inline text-slate-700 hover:underline'>About</li></Link>
                     <Link to='/signIn'><li className='text-slate-700 hover:underline'>{''}Sign In</li></Link>
