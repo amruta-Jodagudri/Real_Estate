@@ -17,10 +17,9 @@ export default function App() {
             <Route path='/about' element={<About/>}/>
             <Route path='/profile' element={<Profile/>}/>
             <Route path='/signIn' element={<SignIn/>}/>
-            <Route path='/signOut' element={<SignUp/>}/>
+            <Route path='/signup' element={<SignUp/>}/>
         </Routes>
       </Router>
-      {/* <Header/> */}
     </div>
   )
 }
