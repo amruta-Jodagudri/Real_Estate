@@ -17,7 +17,7 @@ const userSchema = new mongoose.Schema({
     },
     avatar:{
         type:String,
-        default:"https://media.istockphoto.com/id/1087531642/vector/male-face-silhouette-or-icon-man-avatar-profile-unknown-or-anonymous-person-vector.jpg?s=612x612&w=0&k=20&c=FEppaMMfyIYV2HJ6Ty8tLmPL1GX6Tz9u9Y8SCRrkD-o="
+        default:"https://firebasestorage.googleapis.com/v0/b/mern-estate-67049.appspot.com/o/1714756655521WhatsApp%20Image%202024-05-03%20at%2010.41.07%20PM.jpeg?alt=media&token=28b5af79-91ec-4b91-8d5d-926b11aeeddb"
     }
 },{timestamps:true});
 

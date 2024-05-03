@@ -23,6 +23,8 @@ export default function Profile() {
     const dispatch = useDispatch();
     const Navigate = useNavigate();
     
+    console.log(formData);
+    
     useEffect(() => {
         if(File){
             handleFileUpload(File);
@@ -93,7 +95,7 @@ export default function Profile() {
                 return;
             }
             dispatch(deleteUserSuccess(data));
-            // Navigate('/signup');
+            Navigate('/signup');
         } catch (error) {
             dispatch(deleteUserFailure(error.message));
         }
@@ -110,7 +112,7 @@ export default function Profile() {
                 return;
             }
             dispatch(SignOutUserSuccess(data));
-            // Navigate('/signIn');
+            Navigate('/signup');
         } catch (error) {
             dispatch(SignOutUserFailure(data.message));
         }
