@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { app } from '../firebase';
-import { deleteUserFailure, deleteUserStart, deleteUserSuccess, updateUserFailure, updateUserStart, updateUserSuccess } from '../redux/user/userSlice.js';
+import { SignOutUserFailure, SignOutUserStart, SignOutUserSuccess, deleteUserFailure, deleteUserStart, deleteUserSuccess, updateUserFailure, updateUserStart, updateUserSuccess } from '../redux/user/userSlice.js';
 
 //firebase storage
 // allow read;
@@ -93,11 +93,28 @@ export default function Profile() {
                 return;
             }
             dispatch(deleteUserSuccess(data));
-            Navigate('/signup');
+            // Navigate('/signup');
         } catch (error) {
             dispatch(deleteUserFailure(error.message));
         }
     };
+
+    const handleSignout =async()=>{
+        try {
+            dispatch(SignOutUserStart());
+            const res = await fetch('/api/auth/signout');
+            const data = await res.json();
+
+            if(data.success === false){
+                dispatch(SignOutUserFailure(data.message));
+                return;
+            }
+            dispatch(SignOutUserSuccess(data));
+            // Navigate('/signIn');
+        } catch (error) {
+            dispatch(SignOutUserFailure(data.message));
+        }
+    }
 
     return (
         <div className='p-3 max-w-lg mx-auto'>
@@ -133,7 +150,7 @@ export default function Profile() {
             </form>
             <div className="flex justify-between mt-5">
                 <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete Account</span>
-                <span className='text-red-700 cursor-pointer'>Sign Out</span>
+                <span onClick={handleSignout} className='text-red-700 cursor-pointer'>Sign Out</span>
             </div>
 
             <p className='text-green-700 mt-5'>{updateSuccess ? 'User updated successfully' : ''}</p>
