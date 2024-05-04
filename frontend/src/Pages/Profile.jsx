@@ -1,7 +1,7 @@
 import { getDownloadURL, getStorage, ref, uploadBytesResumable } from 'firebase/storage';
 import React, { useEffect, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { app } from '../firebase';
 import { SignOutUserFailure, SignOutUserStart, SignOutUserSuccess, deleteUserFailure, deleteUserStart, deleteUserSuccess, updateUserFailure, updateUserStart, updateUserSuccess } from '../redux/user/userSlice.js';
 
@@ -24,7 +24,7 @@ export default function Profile() {
     const Navigate = useNavigate();
     
     console.log(formData);
-    
+
     useEffect(() => {
         if(File){
             handleFileUpload(File);
@@ -149,6 +149,7 @@ export default function Profile() {
                     className='bg-slate-700 text-white rounded-lg p-3 uppercase hover:opacity-95 disabled:opacity-80'>
                     Update
                 </button>
+                <Link className='bg-green-700 text-white p-3 rounded-lg uppercase text-center hover:opacity-95' to={'/create-listing'}>Create Listing</Link>
             </form>
             <div className="flex justify-between mt-5">
                 <span onClick={handleDeleteUser} className='text-red-700 cursor-pointer'>Delete Account</span>
